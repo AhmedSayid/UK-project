@@ -195,7 +195,7 @@ ul {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   left: 10px;
@@ -218,5 +218,8 @@ ul {
   }
   .menu ul li {
     width: calc(100% / 3);
+  }
+  .close{
+    display: flex !important;
   }
 }

@@ -11,7 +11,7 @@ const Sidebar = () => {
 
       <div className="rows">
         <div className={`cols-3 sidebar ${open ? "open" : ""}`}>
-          <span className="close d-none" onClick={() => setOpen(!open)}>X</span>
+<span className="close " onClick={() => setOpen(!open)}>X</span>
           {/*           <div className="about-text">About Us</div> */}
           <img style={{ width: "100%" }} src={sidebar} alt="" />
           <p style={{ marginTop: "-550px" ,padding:'30px' }} className="sidebar_menu">
