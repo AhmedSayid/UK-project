@@ -5,7 +5,7 @@ const Logo = () => {
       <header >
         <div style={{ userSelect: "none" }}>
 
-          <img src={banner} alt="" style={{ width: '100%', height: '60px', objectFit: 'fit', }} />
+          <img src={banner} alt="" style={{ width: '100%', height: '100px', objectFit: 'fit', }} />
 
         </div>
 

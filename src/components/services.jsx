@@ -7,14 +7,14 @@ const Services = () => {
       <div id="svc" style={{ padding: "8px" }}>
         <h1>Services</h1>
         <div align="center">
-          <lottie-player
+{/*           <lottie-player
             src="https://assets4.lottiefiles.com/private_files/lf30_kgzAQ8.json"
             background="transparent"
             speed="1"
             style={{ width: "300px", height: "300px" }}
             loop
             autoplay
-          ></lottie-player>
+          ></lottie-player> */}
         </div>
 
         <p>
