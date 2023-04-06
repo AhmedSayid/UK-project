@@ -1,8 +1,23 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const Contact = () => {
+  const [data, setData] = useState({});
+  const [mess, setMess] = useState("");
+
+  const changeFunc = (name, value) => {
+    setData({ ...data, [name]: value });
+  };
+  const sendData = async (e) => {
+    e.preventDefault();
+    const res = await axios.post(
+      "https://ahmedapi.onrender.com/api/v1/message",
+      data
+    );
+    setMess(res.data.msg);
+  };
   return (
     <div id="content">
       <h1>Contact Us</h1>
@@ -21,28 +36,39 @@ const Contact = () => {
       </p>
       <br />
       <div style={{ color: "#ff0000" }} />
-      <Form action="contact.php?return=yes" method="post">
+      <Form method="post" onSubmit={sendData}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Your name</Form.Label>
-          <Form.Control type="text" placeholder="Enter Name" name="name" />
+          <Form.Control
+            type="text"
+            placeholder="Enter Name"
+            name="name"
+            onChange={(e) => changeFunc(e.target.name, e.target.value)}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Your email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter Email" name="email" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Your contact telephone number:</Form.Label>
-          <Form.Control type="text" placeholder="Enter Phone" name="tel" />
+          <Form.Control
+            type="email"
+            placeholder="Enter Email"
+            name="email"
+            onChange={(e) => changeFunc(e.target.name, e.target.value)}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Write your message here:</Form.Label>
-          <Form.Control as="textarea" rows={3} name="tel" />
+          <Form.Control
+            as="textarea"
+            rows={3}
+            name="message"
+            onChange={(e) => changeFunc(e.target.name, e.target.value)}
+          />
         </Form.Group>
         <Button variant="primary" type="submit">
           Send Message
         </Button>
       </Form>
+      {mess}
     </div>
   );
 };
